@@ -1,3 +1,15 @@
+---
+
+## Sobre este repositório
+
+Este repositório contém o teste técnico que utilizei em uma entrevista real para vaga de desenvolvedor sênior no exterior. O teste foi resolvido do zero, sem uso de IA, e está documentado em vídeo no YouTube. Se quiser ver como foi a entrevista, confira o vídeo completo:
+
+[Assista ao vídeo da entrevista técnica real ($5000/mês)](https://youtu.be/QNRg8FBc8U0)
+
+No vídeo, explico o raciocínio, mostro a resolução do teste e comento pontos importantes do processo seletivo internacional.
+
+---
+
 # Inventory Tracker – Interview Task
 
 ## Overview
