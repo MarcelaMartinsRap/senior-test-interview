@@ -6,8 +6,12 @@ import { MovementEntity } from "./inventory/movement.entity";
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: "better-sqlite3",
-      database: process.env.DATABASE_PATH || "inventory.db",
+      type: "postgres",
+      host: process.env.DB_HOST || "localhost",
+      port: Number(process.env.DB_PORT) || 5432,
+      username: process.env.DB_USERNAME || "postgres",
+      password: process.env.DB_PASSWORD || "postgres",
+      database: process.env.DB_NAME || "inventory",
       entities: [MovementEntity],
       synchronize: true,
     }),

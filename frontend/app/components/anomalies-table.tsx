@@ -8,32 +8,42 @@ export function AnomaliesTable({ items }: AnomaliesTableProps) {
   if (items.length === 0) return null;
 
   return (
-    <section>
-      <h2 className="mb-2 text-xl font-semibold text-red-700">Anomalies</h2>
-      <table className="w-full border-collapse rounded-md bg-red-50 shadow">
-        <thead className="bg-red-100">
-          <tr>
-            <th className="px-4 py-2 text-left text-sm font-medium text-red-800">
-              Product ID
-            </th>
-            <th className="px-4 py-2 text-left text-sm font-medium text-red-800">
-              Name
-            </th>
-            <th className="px-4 py-2 text-left text-sm font-medium text-red-800">
-              Message
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((item) => (
-            <tr key={item.product_id} className="border-t border-red-200">
-              <td className="px-4 py-2 text-sm">{item.product_id}</td>
-              <td className="px-4 py-2 text-sm">{item.product_name}</td>
-              <td className="px-4 py-2 text-sm text-red-600">{item.message}</td>
+    <section className="overflow-hidden rounded-xl border border-red-200 bg-white shadow-sm">
+      <div className="border-b border-red-200 bg-red-50 px-6 py-4">
+        <h2 className="text-lg font-semibold text-red-800">🚨 Anomalias</h2>
+      </div>
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="border-b border-red-100 bg-red-50/50">
+              <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-red-600">
+                ID Produto
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-red-600">
+                Nome
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-red-600">
+                Mensagem
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="divide-y divide-red-100">
+            {items.map((item) => (
+              <tr key={item.product_id} className="transition hover:bg-red-50">
+                <td className="px-6 py-3 text-sm font-medium text-slate-700">
+                  {item.product_id}
+                </td>
+                <td className="px-6 py-3 text-sm text-slate-600">
+                  {item.product_name}
+                </td>
+                <td className="px-6 py-3 text-sm font-medium text-red-600">
+                  {item.message}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }

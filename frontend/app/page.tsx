@@ -44,21 +44,36 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
-      <div className="mx-auto max-w-5xl space-y-8">
-        <h1 className="text-3xl font-bold text-gray-900">Inventory Tracker</h1>
+    <main className="min-h-screen bg-linear-to-br from-slate-50 to-slate-100 p-6 md:p-10">
+      <div className="mx-auto max-w-6xl space-y-10">
+        <header className="flex items-center justify-between border-b border-slate-200 pb-6">
+          <div>
+            <h1 className="text-4xl font-extrabold tracking-tight text-slate-900">
+              📦 Rastreador de Inventário
+            </h1>
+            <p className="mt-1 text-sm text-slate-500">
+              Faça upload de um arquivo CSV para analisar movimentações de
+              estoque
+            </p>
+          </div>
+        </header>
 
         <FileUpload onUpload={handleUpload} loading={loading} />
 
         {error && (
-          <div className="rounded-md bg-red-50 p-4 text-red-800">{error}</div>
+          <div className="flex items-center gap-3 rounded-lg border border-red-200 bg-red-50 p-4">
+            <span className="text-lg">⚠️</span>
+            <p className="text-sm font-medium text-red-700">{error}</p>
+          </div>
         )}
 
         {summary && (
-          <div className="space-y-6">
+          <div className="grid gap-8">
             <StockTable items={summary.stock} />
-            <LowStockTable items={summary.low_stock} />
-            <AnomaliesTable items={summary.anomalies} />
+            <div className="grid gap-8 md:grid-cols-2">
+              <LowStockTable items={summary.low_stock} />
+              <AnomaliesTable items={summary.anomalies} />
+            </div>
           </div>
         )}
       </div>
